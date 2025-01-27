@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Route, Routes, Navigate, useNavigate } from "react-router-dom";
 import './login.scss';
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Button from 'components/Button';
 import { mockAuth } from "utils/mockAuth"
   
@@ -11,6 +11,10 @@ const Login: React.FC = () => {
     const [password, setPassword] = useState<string>("");
     const [error, setError] = useState<boolean>(false);
     const navigate = useNavigate();
+
+    useEffect(() => {
+        document.title = 'Login';
+    }, []);
 
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();

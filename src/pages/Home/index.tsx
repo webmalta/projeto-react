@@ -18,6 +18,8 @@ const Home: React.FC = () => {
 
     useEffect(() => {
 
+      document.title = 'Listagem de Dragões';
+
         const loadDragons = async () => {
           try {
             const response = await api.get<Dragon[]>("/");

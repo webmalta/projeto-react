@@ -7,7 +7,7 @@ interface Auth {
 export const mockAuth: Auth = {
     isAuthenticated: false,
     login(user: string, password: string): boolean {
-      if (user === "admin" && password === "12345") {
+      if (user === "admin" && password === "123") {
         this.isAuthenticated = true;
         return true;
       }
