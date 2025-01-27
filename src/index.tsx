@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from "react-dom/client";
-import './index.css';
+import './global.scss';
 import RoutesApp from "./routes";
 import Button from './components/Button';
 

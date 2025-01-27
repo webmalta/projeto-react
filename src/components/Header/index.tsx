@@ -1,9 +1,9 @@
-import './Header.css';
+import React from 'react';
 
 const Header: React.FC = () => {
     return (
-        <header className="header">
-            <h1>Welcome to My Website</h1>
+        <header>
+            <h1>Meu projeto</h1>
         </header>
     );
 };
