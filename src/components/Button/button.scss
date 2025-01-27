@@ -1,0 +1,28 @@
+@import '../../vars.scss';
+
+.button {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  text-align: center;
+  text-decoration: none;
+  border: none;
+  border-radius: 6px;
+  color: $btn-white;
+  cursor: pointer;
+  background-color: $btn-primary;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: $btn-primary-hover;
+  }
+
+  &:active {
+    background-color: $btn-primary-active;
+  }
+
+  &:disabled {
+    background-color: $btn-disabled;
+    cursor: not-allowed;
+  }
+}

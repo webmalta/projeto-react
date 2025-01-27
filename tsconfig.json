@@ -3,6 +3,8 @@
       "jsx": "react-jsx",
       "strict": true,
       "moduleResolution": "node",
-      "esModuleInterop": true
-    }
+      "esModuleInterop": true,
+      "baseUrl": "src"
+    },
+    "include": ["src"]
   }
