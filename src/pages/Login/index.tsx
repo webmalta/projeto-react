@@ -2,7 +2,7 @@ import { BrowserRouter as Router, Route, Routes, Navigate, useNavigate } from "r
 import './login.scss';
 import { useState } from "react";
 import Button from 'components/Button';
-import { mockAuth } from "Utils/mockAuth"
+import { mockAuth } from "utils/mockAuth"
   
 
 const Login: React.FC = () => {

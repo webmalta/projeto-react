@@ -1,5 +1,5 @@
 import './home.scss';
-import dragonImage from "../../Assets/dragon2.svg";
+import dragonImage from "../../assets/dragon.svg";
 import { useEffect, useState } from "react";
 import api from "../../services/api";
 import Button from "components/Button";
@@ -35,7 +35,7 @@ const Home: React.FC = () => {
     return (
         <div className="container-home">
           {loading ? (
-            <p>Carregando lista de Dragões...</p>
+            <div className="load">Carregando lista de Dragões...</div>
           ) : (
             <div className="dragon-lists">
               {dragons.map((i) => (
