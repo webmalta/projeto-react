@@ -11,7 +11,7 @@ const Detalhes: React.FC = () => {
     const { id } = useParams();
     const navigate = useNavigate();
     const [dragon, setDragon] = useState<Dragon>({} as Dragon);
-    const [loading, setLoading] = useState(true);
+    const [loading, setLoading] = useState<boolean>(true);
 
     useEffect(() => {
 
