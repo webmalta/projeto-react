@@ -20,9 +20,10 @@ const Detalhes: React.FC = () => {
         const loadDragon = async () => {
           await api.get<Dragon>(`/${id}`).then((response) => {
             setDragon(response.data);
-            setLoading(false);
           }).catch((error) => {
-            console.error("Erro ao carregar o dragão:", error);
+            console.error("Erro ao carregar o dragão", error);
+          }).finally(() => {
+            setLoading(false);
           })
         };
         loadDragon();

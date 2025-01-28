@@ -18,9 +18,10 @@ const Home: React.FC = () => {
       const loadDragons = async () => {
         await api.get<Dragon[]>("/").then((response) => {
           setDragons(response.data);
-          setLoading(false);
         }).catch((error) => {
           console.error("Erro ao carregar dragões:", error);
+        }).finally(() => {
+          setLoading(false);
         });
       };
       loadDragons();
