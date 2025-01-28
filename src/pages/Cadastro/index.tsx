@@ -1,15 +1,14 @@
 import './cadastro.scss';
 import React, { useState } from 'react';
-import Button from "components/Button";
 import { Dragon } from "types/dragon";
 import { useNavigate } from 'react-router-dom';
 import api from "services/api";
+import Form from "components/Form";
 
 const Cadastro: React.FC = () => {
-    const [formData, setFormData] = useState<Dragon>({
+    const [formData, setFormData] = useState<Pick<Dragon, 'name' | 'type'>>({
         name: "",
         type: "",
-        createdAt: new Date().toISOString()
     });
     const navigate = useNavigate();
 
@@ -20,59 +19,45 @@ const Cadastro: React.FC = () => {
             navigate('/Home');
         } catch (error) {
             console.error("Erro ao criar o dragão:", error);
-            throw error;
         }
     };
 
-    const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        const { name, value } = event.target;
-        setFormData({ ...formData, [name]: value });
+    const handleChange = (field: string, value: string) => {
+        setFormData({ ...formData, [field]: value });
     };
 
     const handleSubmit = async (event: React.FormEvent) => {
         event.preventDefault();
         try {
-            await salvarDragao(formData);
+            const dragonToSave: Dragon = {
+                ...formData,
+                createdAt: new Date().toISOString(),
+            };
+            await salvarDragao(dragonToSave);
             setFormData({
                 name: '',
-                type: '',
-                createdAt: new Date().toISOString()
+                type: ''
             });
         } catch {
             console.error("Erro ao salvar o dragão.");
         }
     };
 
+
     return (
+        <div className="container">
             <div className="container-form">
-                <h1>Cadastrar Dragões</h1>
-                <form role="form" onSubmit={handleSubmit}>
-                    <div>
-                        <label htmlFor="name">Nome:</label>
-                        <input
-                            type="text"
-                            id="name"
-                            name="name"
-                            value={formData.name}
-                            onChange={handleChange}
-                        />
-                    </div>
-                    <div>
-                        <label htmlFor="type">Tipo:</label>
-                        <input
-                            type="text"
-                            id="type"
-                            name="type"
-                            value={formData.type}
-                            onChange={handleChange}
-                        />
-                    </div>
-                    <div className="group-buttons">
-                        <Button theme="btn-max" type="submit">Cadastrar</Button>
-                        <Button theme="btn-max" onClick={(() => navigate("/Home"))}>Cancelar</Button>
-                    </div>
-                </form>
+                <Form
+                    title="Cadastrar"
+                    formData={formData}
+                    onChange={handleChange}
+                    onSubmit={handleSubmit}
+                    onCancel={() => navigate("/Home")}
+                    submitText="Cadastrar"
+                    cancelText="Cancelar"
+                />
             </div>
+        </div>
     );
 };
 

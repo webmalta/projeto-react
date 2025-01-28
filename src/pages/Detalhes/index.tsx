@@ -4,7 +4,6 @@ import { useParams, useNavigate } from "react-router-dom";
 import api from "services/api";
 import { Dragon } from "types/dragon";
 import dragonImage from "assets/dragon.svg";
-import { Link } from 'react-router-dom';
 import Button from "components/Button";
 
 const Detalhes: React.FC = () => {
