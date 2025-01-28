@@ -36,7 +36,7 @@ http://5c4b2a47aa8ee500142b4887.mockapi.io/api/v1/dragon
    ```bash
    npm install
 
-3. Start
+3. Start da aplicação
 
    ```bash
    npm install
