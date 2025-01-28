@@ -28,6 +28,18 @@ const Home: React.FC = () => {
       loadDragons();
     }, []);
 
+    const handleRemove = async (id: number | undefined) => {
+      try {
+        if (id) {
+          await api.delete(`/${id}`);
+          setDragons(dragons.filter(dragon => dragon.id !== id));
+          alert("Dragão removido com sucesso!");
+        }
+      } catch (error) {
+          console.error("Erro ao remover o dragão:", error);
+      }
+  };
+
     return (
         <div className="container-home">
           {loading ? (
@@ -48,7 +60,7 @@ const Home: React.FC = () => {
                     <div className="group-buttons">
                       <Button theme="btn-min" onClick={(() => navigate(`/details/${i.id}`))}>Detalhes</Button>
                       <Button theme="btn-min" onClick={(() => navigate(`/change/${i.id}`))}>Alterar</Button>
-                      <Button theme="btn-remove">Remover</Button>
+                      <Button theme="btn-remove" onClick={() => handleRemove(i.id)}>Remover</Button>
                     </div>
                   </div>
                 ))}
