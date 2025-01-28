@@ -1,3 +1,4 @@
+import './form.scss';
 import { FormEvent } from "react";
 import Button from "components/Button";
 
