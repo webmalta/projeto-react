@@ -23,7 +23,7 @@ function Form<T extends Record<string, any>>({
   return (
     <div>
       <h1>{title}</h1>
-      <form onSubmit={onSubmit}>
+      <form onSubmit={onSubmit} role="form">
         {["name", "type"].map((field) => {
           const value = formData[field as keyof T];
           return typeof value === "string" ? (
