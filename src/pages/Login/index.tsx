@@ -29,7 +29,7 @@ const Login: React.FC = () => {
 
     return (
         <div className="login">
-            <form className="login-form" onSubmit={handleSubmit}>
+            <form role="form" className="login-form" onSubmit={handleSubmit}>
                 <div className="form-group">
                     <input 
                     type="text" 
