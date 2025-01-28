@@ -32,6 +32,10 @@ const Home: React.FC = () => {
           {loading ? (
             <div className="load">Carregando lista de Dragões...</div>
           ) : (
+            <>
+            <Link to={'/register'}>
+              <Button theme="btn-register">Cadastrar Novo Dragão</Button>
+            </Link>
             <div className="dragon-lists">
               {dragons.map((i) => (
                 <div key={i.id} className="dragon-card">
@@ -43,12 +47,15 @@ const Home: React.FC = () => {
                     <Link to={`/details/${i.id}`}>
                       <Button theme="btn-min">Detalhes</Button>
                     </Link>
-                    <Button theme="btn-min" onClick={() => console.log('Alterar o dragão!')}>Alterar</Button>
-                    <Button theme="btn-min" onClick={() => console.log('Remover o dragão!')}>Remover</Button>
+                    <Link to={`/change/${i.id}`}>
+                      <Button theme="btn-min">Alterar</Button>
+                    </Link>
+                    <Button theme="btn-remove">Remover</Button>
                   </div>
                 </div>
               ))}
             </div>
+            </>
           )}
         </div>
     );

@@ -4,7 +4,7 @@ interface ButtonProps {
     onClick?: () => void;
     children: React.ReactNode;
     type?: 'button' | 'submit' | 'reset';
-    theme?: 'btn-min' | 'btn-max';
+    theme?: 'btn-min' | 'btn-max' | 'btn-register' | 'btn-remove';
     disabled?: boolean;
 }
 

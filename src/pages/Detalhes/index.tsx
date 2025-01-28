@@ -2,7 +2,7 @@ import './detalhes.scss';
 import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import api from "services/api";
-import { Dragon } from "types/dragon"
+import { Dragon } from "types/dragon";
 import dragonImage from "assets/dragon.svg";
 import { Link } from 'react-router-dom';
 import Button from "components/Button";
@@ -12,6 +12,15 @@ const Detalhes: React.FC = () => {
     const navigate = useNavigate();
     const [dragon, setDragon] = useState<Dragon>({} as Dragon);
     const [loading, setLoading] = useState<boolean>(true);
+
+    const formatarData = (data: string): string => {
+      const dateObj = new Date(data);
+      return dateObj.toLocaleDateString("pt-BR", {
+          day: "2-digit",
+          month: "2-digit",
+          year: "numeric",
+      });
+    };
 
     useEffect(() => {
 
@@ -41,16 +50,20 @@ const Detalhes: React.FC = () => {
                     <h2>{dragon.name}</h2>
                   </div>
                   <div className="detail-content">
-                    <span className="detail-date">Data de criação: {dragon.createdAt}</span>
+                    <span className="detail-date">Data de criação: {formatarData(dragon.createdAt)}</span>
                     <p>
-                      Nulla ut cursus ipsum. Mauris justo metus, sollicitudin in convallis sed, aliquet eu elit. Etiam tincidunt commodo turpis, ac luctus turpis tempus id. Aenean ultrices mauris sed commodo posuere. Phasellus cursus, enim eu sollicitudin ornare, nulla mi lobortis massa, sed bibendum nulla augue vel nibh. Praesent ut mauris fermentum, pulvinar justo ac, lacinia odio. Curabitur placerat egestas justo id ornare. Donec cursus turpis non augue pharetra faucibus. Donec ultricies aliquam arcu, non eleifend augue condimentum sit amet.
+                      Nulla ut cursus ipsum. Mauris justo metus, sollicitudin in convallis sed, 
+                      aliquet eu elit. Etiam tincidunt commodo turpis, ac luctus turpis tempus id. 
+                      Aenean ultrices mauris sed commodo posuere. Phasellus cursus, enim eu sollicitudin 
+                      ornare, nulla mi lobortis massa, sed bibendum nulla augue vel nibh. 
+                      Praesent ut mauris fermentum, pulvinar justo ac, lacinia odio. Curabitur 
+                      placerat egestas justo id ornare. Donec cursus turpis non augue pharetra faucibus. 
+                      Donec ultricies aliquam arcu, non eleifend augue condimentum sit amet.
                     </p>
                   </div>
 
                   <div className="group-buttons">
-                    <Link to={`/Home`}>
-                      <Button theme="btn-max">Home</Button>
-                    </Link>
+                    <Button theme="btn-max" onClick={(() => navigate("/Home"))}>Voltar</Button>
                   </div>
                 </div>
             </div>
