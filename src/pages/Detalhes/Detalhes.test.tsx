@@ -12,13 +12,13 @@ describe('Detalhes Component', () => {
   const mockDragon: Dragon = {
     id: 1,
     name: 'Fúria da Noite',
-    createdAt: '2025-01-01',
+    createdAt: '2025-01-28T15:04:24.209Z',
     type: "Night Fury"
   };
 
   beforeEach(() => {
     jest.clearAllMocks();
-    console.error = jest.fn(); 
+    console.error = jest.fn();
   });
 
   test('deve carregar e exibir os detalhes do dragão', async () => {
@@ -34,7 +34,8 @@ describe('Detalhes Component', () => {
 
     await waitFor(() => {
       expect(screen.getByText(mockDragon.name)).toBeInTheDocument();
-      expect(screen.getByText(`Data de criação: ${mockDragon.createdAt}`)).toBeInTheDocument();
+      expect(screen.getByText('Data de criação: 28/01/2025')).toBeInTheDocument();
+      expect(screen.getByText(`Tipo: ${mockDragon.type}`)).toBeInTheDocument();
     });
 
     expect(screen.getByAltText('Avatar do dragão')).toBeInTheDocument();
