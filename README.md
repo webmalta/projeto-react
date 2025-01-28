@@ -39,4 +39,4 @@ Este projeto foi desenvolvido para demonstrar um CRUD simples (Create, Read, Upd
 3. Start da aplicação
 
    ```bash
-   npm install
+   npm start
