@@ -4,7 +4,7 @@ Este projeto é uma aplicação simples em React para cadastro de dragões. O ob
 
 ## Sobre o Projeto
 
-Este projeto foi desenvolvido para demonstrar um CRUD simples (Create, Read, Update, Delete) usando React. Ele possui uma interface onde os usuários podem cadastrar e visualizar dragões, permitindo a manipulação de informações como nome, tipo e data de criação.
+Este projeto foi desenvolvido para demonstrar um CRUD simples (Create, Read, Update, Delete) usando React.
 
 ## Tecnologias Utilizadas
 
