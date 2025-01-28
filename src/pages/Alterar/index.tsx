@@ -3,7 +3,6 @@ import { useParams, useNavigate } from "react-router-dom";
 import api from "services/api";
 import Button from "components/Button";
 import { Dragon } from "types/dragon";
-import { Link } from 'react-router-dom';
 
 const Alterar: React.FC = () => {
     const { id } = useParams();

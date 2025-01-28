@@ -3,13 +3,14 @@ import dragonImage from "assets/dragon.svg";
 import { useEffect, useState } from "react";
 import api from "services/api";
 import Button from "components/Button";
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { Dragon } from "types/dragon"
 
 const Home: React.FC = () => {
     
     const [dragons, setDragons] = useState<Dragon[]>([]);
     const [loading, setLoading] = useState<boolean>(true);
+    const navigate = useNavigate();
 
     useEffect(() => {
 
@@ -33,9 +34,7 @@ const Home: React.FC = () => {
             <div className="load">Carregando lista de Dragões...</div>
           ) : (
             <>
-            <Link to={'/register'}>
-              <Button theme="btn-register">Cadastrar Novo Dragão</Button>
-            </Link>
+            <Button theme="btn-register" onClick={(() => navigate('/register'))}>Cadastrar Novo Dragão</Button>
             <div className="dragon-lists">
               {dragons.map((i) => (
                 <div key={i.id} className="dragon-card">
@@ -44,12 +43,8 @@ const Home: React.FC = () => {
                     <h2>{i.name}</h2>
                   </div>
                   <div className="group-buttons">
-                    <Link to={`/details/${i.id}`}>
-                      <Button theme="btn-min">Detalhes</Button>
-                    </Link>
-                    <Link to={`/change/${i.id}`}>
-                      <Button theme="btn-min">Alterar</Button>
-                    </Link>
+                    <Button theme="btn-min" onClick={(() => navigate(`/details/${i.id}`))}>Detalhes</Button>
+                    <Button theme="btn-min" onClick={(() => navigate(`/change/${i.id}`))}>Alterar</Button>
                     <Button theme="btn-remove">Remover</Button>
                   </div>
                 </div>
