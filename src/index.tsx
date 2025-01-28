@@ -1,8 +1,7 @@
 import React from 'react';
 import ReactDOM from "react-dom/client";
-import './global.scss';
 import RoutesApp from "./routes";
-import Button from './components/Button';
+import 'global.scss';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement

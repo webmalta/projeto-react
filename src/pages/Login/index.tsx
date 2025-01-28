@@ -1,7 +1,7 @@
-import { BrowserRouter as Router, Route, Routes, Navigate, useNavigate } from "react-router-dom";
+import { BrowserRouter as Navigate, useNavigate } from "react-router-dom";
 import './login.scss';
 import { useEffect, useState } from "react";
-import Button from 'components/Button';
+import Button from "components/Button";
 import { mockAuth } from "utils/mockAuth"
   
 

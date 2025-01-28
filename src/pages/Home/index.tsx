@@ -1,15 +1,10 @@
 import './home.scss';
-import dragonImage from "../../assets/dragon.svg";
+import dragonImage from "assets/dragon.svg";
 import { useEffect, useState } from "react";
-import api from "../../services/api";
+import api from "services/api";
 import Button from "components/Button";
-
-interface Dragon {
-    id: number;
-    createdAt: string;
-    name: string;
-    type: string;
-}
+import { Link } from 'react-router-dom';
+import { Dragon } from "types/dragon"
 
 const Home: React.FC = () => {
     
@@ -20,19 +15,16 @@ const Home: React.FC = () => {
 
       document.title = 'Listagem de Dragões';
 
-        const loadDragons = async () => {
-          try {
-            const response = await api.get<Dragon[]>("/");
-            console.log('response',response);
-            setDragons(response.data);
-          } catch (error) {
-            console.error("Erro ao carregar dragões:", error);
-          } finally {
-            setLoading(false);
-          }
-        };
-        loadDragons();
-      }, []);
+      const loadDragons = async () => {
+        await api.get<Dragon[]>("/").then((response) => {
+          setDragons(response.data);
+          setLoading(false);
+        }).catch((error) => {
+          console.error("Erro ao carregar dragões:", error);
+        });
+      };
+      loadDragons();
+    }, []);
 
     return (
         <div className="container-home">
@@ -47,9 +39,11 @@ const Home: React.FC = () => {
                     <h2>{i.name}</h2>
                   </div>
                   <div className="group-buttons">
-                    <Button theme="btn-min" onClick={() => console.log('Remover o dragão!')}>Remover</Button>
+                    <Link to={`/details/${i.id}`}>
+                      <Button theme="btn-min">Detalhes</Button>
+                    </Link>
                     <Button theme="btn-min" onClick={() => console.log('Alterar o dragão!')}>Alterar</Button>
-                    <Button theme="btn-min" onClick={() => console.log('Detalhes do dragão!')}>Detalhes</Button>
+                    <Button theme="btn-min" onClick={() => console.log('Remover o dragão!')}>Remover</Button>
                   </div>
                 </div>
               ))}
