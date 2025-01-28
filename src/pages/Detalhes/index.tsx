@@ -50,7 +50,8 @@ const Detalhes: React.FC = () => {
                     <h2>{dragon.name}</h2>
                   </div>
                   <div className="detail-content">
-                    <span className="detail-date">Data de criação: {formatarData(dragon.createdAt)}</span>
+                    <span>Data de criação: {formatarData(dragon.createdAt)}</span><br />
+                    <span>Tipo: {dragon.type}</span>
                     <p>
                       Nulla ut cursus ipsum. Mauris justo metus, sollicitudin in convallis sed, 
                       aliquet eu elit. Etiam tincidunt commodo turpis, ac luctus turpis tempus id. 

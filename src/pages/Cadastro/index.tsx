@@ -17,6 +17,7 @@ const Cadastro: React.FC = () => {
         try {
             await api.post<Dragon>("/", dragon);
             alert("Dragão criado com sucesso.");
+            navigate('/Home');
         } catch (error) {
             console.error("Erro ao criar o dragão:", error);
             throw error;

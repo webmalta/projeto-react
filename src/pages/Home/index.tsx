@@ -35,21 +35,25 @@ const Home: React.FC = () => {
           ) : (
             <>
             <Button theme="btn-register" onClick={(() => navigate('/register'))}>Cadastrar Novo Dragão</Button>
-            <div className="dragon-lists">
-              {dragons.map((i) => (
-                <div key={i.id} className="dragon-card">
-                  <div className="details">
-                    <img src={dragonImage} alt="Avatar do dragão"></img>
-                    <h2>{i.name}</h2>
+            {dragons.length === 0 ? (
+              <h2 className="empty-list">Listagem vazia.</h2>
+            ) : (
+              <div className="dragon-lists">
+                {dragons.map((i) => (
+                  <div key={i.id} className="dragon-card">
+                    <div className="details">
+                      <img src={dragonImage} alt="Avatar do dragão"></img>
+                      <h2>{i.name}</h2>
+                    </div>
+                    <div className="group-buttons">
+                      <Button theme="btn-min" onClick={(() => navigate(`/details/${i.id}`))}>Detalhes</Button>
+                      <Button theme="btn-min" onClick={(() => navigate(`/change/${i.id}`))}>Alterar</Button>
+                      <Button theme="btn-remove">Remover</Button>
+                    </div>
                   </div>
-                  <div className="group-buttons">
-                    <Button theme="btn-min" onClick={(() => navigate(`/details/${i.id}`))}>Detalhes</Button>
-                    <Button theme="btn-min" onClick={(() => navigate(`/change/${i.id}`))}>Alterar</Button>
-                    <Button theme="btn-remove">Remover</Button>
-                  </div>
-                </div>
-              ))}
-            </div>
+                ))}
+              </div>
+            )}
             </>
           )}
         </div>
