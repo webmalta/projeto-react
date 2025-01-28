@@ -17,7 +17,12 @@ Este projeto foi desenvolvido para demonstrar um CRUD simples (Create, Read, Upd
 - **React Testing Library**: Para testes da interface do usuário.
 
 ### Versão do Node.js
+
 16.13.2
+
+### Api de consumo usada
+
+http://5c4b2a47aa8ee500142b4887.mockapi.io/api/v1/dragon
 
 ## Instruções de Instalação e rodar a aplicação
 
@@ -26,5 +31,12 @@ Este projeto foi desenvolvido para demonstrar um CRUD simples (Create, Read, Upd
    ```bash
    git clone https://github.com/webmalta/projeto-react.git
 
-2. npm install
-3. npm start
+2. Instalação das dependencias
+
+   ```bash
+   npm install
+
+3. Start
+
+   ```bash
+   npm install
