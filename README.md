@@ -41,7 +41,7 @@ Este projeto foi desenvolvido para demonstrar um CRUD simples (Create, Read, Upd
    ```bash
    npm start
 
-## Acesso (usuário mockado)
+## Acesso (usuário mockado) - Tela de Login
 
-usuario: admin
-senha: 123
+- **Usuário**: admin
+- **Senha**: 123
