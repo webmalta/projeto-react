@@ -1,8 +1,10 @@
+@import '../../vars.scss';
+
 .container-form {
-    background-color: #f9f9f9;
+    background-color: $background-escala-branco;
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px $box-shadow-primary;
     width: 350px;
 
     h1 {
@@ -21,13 +23,13 @@
         font-weight: 600;
         margin-bottom: 5px;
         display: inline-block;
-        color: #7f8c8d;
+        color: $color-escala-cinza;
     }
 
     input {
         padding: 10px;
         font-size: 1rem;
-        border: 1px solid #ccc;
+        border: 1px solid $border-escala-cinza;
         border-radius: 4px;
         width: 100%;
         box-sizing: border-box;
@@ -46,8 +48,8 @@
             transition: background-color 0.3s ease;
 
             &:hover {
-                background-color: #16a085;
-                color: white;
+                background-color: $background-escala-verde;
+                color: $color-white;
             }
         }
     }
