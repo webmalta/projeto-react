@@ -13,7 +13,6 @@ Este projeto foi desenvolvido para demonstrar um CRUD simples (Create, Read, Upd
 - **React Router**: Para navegação entre as páginas de cadastro e listagem de dragões.
 - **Axios**: Para realizar requisições HTTP ao servidor.
 - **SASS**: Para estilização da interface.
-- **Jest**: Para testes unitários e de integração.
 - **React Testing Library**: Para testes da interface do usuário.
 
 ### Versão do Node.js
