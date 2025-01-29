@@ -22,7 +22,7 @@ function Form<T extends Record<string, any>>({
   cancelText,
 }: FormProps<T>) {
   return (
-    <div>
+    <div className="container-form">
       <h1>{title}</h1>
       <form onSubmit={onSubmit} role="form">
         {["name", "type"].map((field) => {

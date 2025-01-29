@@ -38,7 +38,7 @@ const Home: React.FC = () => {
       } catch (error) {
           console.error("Erro ao remover o dragão:", error);
       }
-  };
+    };
 
     return (
         <div className="container-home">

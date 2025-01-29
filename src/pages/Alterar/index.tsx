@@ -57,7 +57,6 @@ const Alterar: React.FC = () => {
 
     return (
         <div className="container">
-            <div className="container-form">
                 <Form
                     title="Alterar"
                     formData={formData}
@@ -67,7 +66,6 @@ const Alterar: React.FC = () => {
                     submitText="Alterar"
                     cancelText="Cancelar"
                 />
-            </div>
         </div>
     );
 };

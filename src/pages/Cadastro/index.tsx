@@ -46,7 +46,6 @@ const Cadastro: React.FC = () => {
 
     return (
         <div className="container">
-            <div className="container-form">
                 <Form
                     title="Cadastrar"
                     formData={formData}
@@ -56,7 +55,6 @@ const Cadastro: React.FC = () => {
                     submitText="Cadastrar"
                     cancelText="Cancelar"
                 />
-            </div>
         </div>
     );
 };
