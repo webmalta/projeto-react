@@ -8,9 +8,9 @@
         gap: 30px;
 
         .dragon-card {
-            background-color: #fff;
+            background-color: $background-branco;
             padding: 20px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 0 10px $box-shadow-primary;
             transition: transform 100ms ease-in-out;
 
             &:hover {

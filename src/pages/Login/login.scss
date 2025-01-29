@@ -11,8 +11,8 @@
         width: 100%;
         max-width: 400px;
         padding: 20px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        background-color: rgb(237, 239, 241);
+        box-shadow: 0 0 10px $box-shadow-primary;
+        background-color: $background-escala-branco-cinza;
         border-radius: 8px;
 
         .error {
@@ -37,7 +37,7 @@
             box-shadow: none;
             border-width: 2px;
             border-style: solid;
-            border-color: rgb(189, 195, 199);
+            border-color: $box-shadow-primary;
             border-image: initial;
             padding: 8px 12px;
             border-radius: 6px;
