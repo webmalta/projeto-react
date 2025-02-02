@@ -59,8 +59,7 @@ describe("Componente Alterar", () => {
     const mockDragon = {
       name: "Dragon 1",
       type: "Fire",
-      histories: ["History 1", "History 2"],
-      createdAt: new Date().toISOString(),
+      histories: ["History 1", "History 2"]
     };
 
     (api.get as jest.Mock).mockResolvedValueOnce({ data: mockDragon });
@@ -83,7 +82,6 @@ describe("Componente Alterar", () => {
     const mockDragon = {
         name: "Dragon 1",
         type: "Fire",
-        createdAt: new Date().toISOString(),
         histories: ["History 1", "History 2"],
     };
 
@@ -117,8 +115,7 @@ describe("Componente Alterar", () => {
     const mockDragon = {
       name: "Dragon 1",
       type: "Fire",
-      histories: ["History 1", "History 2"],
-      createdAt: new Date().toISOString(),
+      histories: ["History 1", "History 2"]
     };
 
     (api.get as jest.Mock).mockResolvedValueOnce({ data: mockDragon });
