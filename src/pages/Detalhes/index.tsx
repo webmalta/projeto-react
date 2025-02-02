@@ -51,7 +51,7 @@ const Detalhes: React.FC = () => {
                   <div className="detail-content">
                     <span>Data de criação: {formatarData(dragon.createdAt)}</span><br />
                     <span>Tipo: {dragon.type}</span>
-                    <div className="descrition">
+                    <div className="description">
                       {dragon.histories?.map((history, index) => (
                         <p key={index}>{history}</p>
                       ))}
