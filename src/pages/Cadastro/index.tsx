@@ -24,7 +24,14 @@ const Cadastro: React.FC = () => {
     };
 
     const handleChange = (field: string, value: string) => {
-        setFormData({ ...formData, [field]: value });
+        if (field === "histories") {
+            setFormData(prevState => ({
+                ...prevState,
+                histories: value ? [value] : [],
+            }));
+        } else {
+            setFormData({ ...formData, [field]: value });
+        }
     };
 
     const handleSubmit = async (event: React.FormEvent) => {

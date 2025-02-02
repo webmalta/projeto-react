@@ -6,6 +6,7 @@ interface FormProps<T> {
   title: string;
   formData: T;
   onChange: (field: keyof T, value: string) => void;
+  onKeyDown?: (event: React.KeyboardEvent<HTMLTextAreaElement>) => void;
   onSubmit: (event: FormEvent) => void;
   onCancel: () => void;
   submitText: string;
@@ -16,6 +17,7 @@ function Form<T extends Record<string, any>>({
   title,
   formData,
   onChange,
+  onKeyDown,
   onSubmit,
   onCancel,
   submitText,
@@ -39,6 +41,7 @@ function Form<T extends Record<string, any>>({
                   rows={5}
                   value={value}
                   onChange={(e) => onChange(field as keyof T, e.target.value)}
+                  onKeyDown={onKeyDown}
                 />
               ) : (
                 <input

@@ -44,6 +44,13 @@ const Alterar: React.FC = () => {
     };
 
     const handleChange = (field: string, value: string) => {
+        if (field === "histories") {
+            setFormData(prevState => ({
+                ...prevState,
+                histories: [value]
+            }));
+            return;
+        }
         setFormData({ ...formData, [field]: value });
     };
 
