@@ -14,7 +14,7 @@ describe('Detalhes Component', () => {
     name: 'Fúria da Noite',
     createdAt: '2025-01-28T15:04:24.209Z',
     type: "Night Fury",
-    histories: ['historia 1']
+    histories: ['historia 1', 'historia 2']
   };
 
   beforeEach(() => {
@@ -44,20 +44,21 @@ describe('Detalhes Component', () => {
 
   test('deve exibir mensagem de erro ao falhar no carregamento', async () => {
     (api.get as jest.Mock).mockRejectedValueOnce(new Error('Erro ao carregar o dragão'));
-
+  
     render(
       <Router>
         <Detalhes />
       </Router>
     );
-
+  
     expect(screen.getByText('Carregando Dragão...')).toBeInTheDocument();
-
+  
     await waitFor(() => {
       expect(screen.queryByText('Carregando Dragão...')).not.toBeInTheDocument();
     });
-
+  
     expect(console.error).toHaveBeenCalledTimes(1);
+  
     expect(console.error).toHaveBeenCalledWith(
       'Erro ao carregar o dragão',
       expect.any(Error)

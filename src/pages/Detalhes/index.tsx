@@ -35,7 +35,7 @@ const Detalhes: React.FC = () => {
           })
         };
         loadDragon();
-      }, [navigate, id]);
+      }, [id]);
 
     return (
         <div className="container-details">
@@ -51,9 +51,11 @@ const Detalhes: React.FC = () => {
                   <div className="detail-content">
                     <span>Data de criação: {formatarData(dragon.createdAt)}</span><br />
                     <span>Tipo: {dragon.type}</span>
-                    <p>
-                      {dragon.histories}
-                    </p>
+                    <div className="descrition">
+                      {dragon.histories?.map((history, index) => (
+                        <p key={index}>{history}</p>
+                      ))}
+                    </div>
                   </div>
 
                   <div className="group-buttons">

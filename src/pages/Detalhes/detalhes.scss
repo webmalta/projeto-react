@@ -21,8 +21,12 @@
         }
 
         .detail-content {
-            p {
-                padding: 20px 0;
+            margin: 8px 0;
+            .description {
+                margin: 10px 0;
+                p {
+                    padding-top: 4px;
+                }
             }
         }
     }
