@@ -6,6 +6,13 @@
     .dragon-detail {
         padding: 20px;
         background-color: $background-branco;
+
+        h2 {
+            display: block;
+            width: 60%;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
         
         .detail { 
             display: flex;

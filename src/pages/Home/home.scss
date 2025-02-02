@@ -13,6 +13,12 @@
             box-shadow: 0 0 10px $box-shadow-primary;
             transition: transform 100ms ease-in-out;
 
+            h2 {
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+
             &:hover {
                 transform: scale(1.05);
             }
