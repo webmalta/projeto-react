@@ -20,7 +20,11 @@ const Alterar: React.FC = () => {
         const carregarDragao = async () => {
             try {
                 const response = await api.get<Dragon>(`/${id}`);
-                setFormData(response.data);
+                const textHistories = response.data.histories.join(",").replace(/,/g, "\n");
+                setFormData({
+                    ...response.data,
+                    histories: [textHistories]
+                });
                 setLoading(true);
               } catch (error) {
                 console.error("Erro ao carregar o dragão:", error);
@@ -33,9 +37,8 @@ const Alterar: React.FC = () => {
 
     const salvarAlteracoes = async () => {
         const { ...dados } = formData;
-
         try {
-            const formatHistories = formData.histories.join("").split("\n");
+            const formatHistories = formData.histories.join("\n").split("\n");
             await api.put<Dragon>(`/${id}`, { ...dados, histories: formatHistories });
             alert("Alterações salvas com sucesso!");
             navigate('/Home');

@@ -38,7 +38,7 @@ const Cadastro: React.FC = () => {
     const handleSubmit = async (event: React.FormEvent) => {
         event.preventDefault();
         try {
-            const formatedHistories = formData.histories.join("").split("\n");
+            const formatedHistories = formData.histories.join("\n").split("\n");
             const dragonToSave: Dragon = {
                 ...formData,
                 histories: formatedHistories,
