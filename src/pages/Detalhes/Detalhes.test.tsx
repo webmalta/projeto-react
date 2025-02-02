@@ -13,7 +13,8 @@ describe('Detalhes Component', () => {
     id: 1,
     name: 'Fúria da Noite',
     createdAt: '2025-01-28T15:04:24.209Z',
-    type: "Night Fury"
+    type: "Night Fury",
+    histories: ['historia 1']
   };
 
   beforeEach(() => {

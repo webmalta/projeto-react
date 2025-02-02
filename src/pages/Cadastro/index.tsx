@@ -6,9 +6,10 @@ import api from "services/api";
 import Form from "components/Form";
 
 const Cadastro: React.FC = () => {
-    const [formData, setFormData] = useState<Pick<Dragon, 'name' | 'type'>>({
+    const [formData, setFormData] = useState<Pick<Dragon, 'name' | 'type' | 'histories'>>({
         name: "",
         type: "",
+        histories: []
     });
     const navigate = useNavigate();
 
@@ -36,7 +37,8 @@ const Cadastro: React.FC = () => {
             await salvarDragao(dragonToSave);
             setFormData({
                 name: '',
-                type: ''
+                type: '',
+                histories: []
             });
         } catch {
             console.error("Erro ao salvar o dragão.");

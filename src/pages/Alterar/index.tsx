@@ -10,6 +10,7 @@ const Alterar: React.FC = () => {
     const [formData, setFormData] = useState<Dragon>({
         name: "",
         type: "",
+        histories: [],
         createdAt: new Date().toISOString()
     });
     const [loading, setLoading] = useState<boolean>(true);

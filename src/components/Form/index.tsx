@@ -25,22 +25,32 @@ function Form<T extends Record<string, any>>({
     <div className="container-form">
       <h1>{title}</h1>
       <form onSubmit={onSubmit} role="form">
-        {["name", "type"].map((field) => {
+        {["name", "type", "histories"].map((field) => {
           const value = formData[field as keyof T];
-          return typeof value === "string" ? (
+          return (
             <div key={field}>
               <label htmlFor={field}>
-                {field === "name" ? "Nome" : field === "type" ? "Tipo" : field}
+                {field === "name" ? "Nome" : field === "type" ? "Tipo" : field === "histories" ? "Descrição" : field}
               </label>
-              <input
-                id={field}
-                type="text"
-                name={field}
-                value={value}
-                onChange={(e) => onChange(field as keyof T, e.target.value)}
-              />
+              {field === "histories" ? (
+                <textarea
+                  id={field}
+                  name={field}
+                  rows={5}
+                  value={value}
+                  onChange={(e) => onChange(field as keyof T, e.target.value)}
+                />
+              ) : (
+                <input
+                  id={field}
+                  type="text"
+                  name={field}
+                  value={value}
+                  onChange={(e) => onChange(field as keyof T, e.target.value)}
+                />
+              )}
             </div>
-          ) : null;
+          );
         })}
         <div className="group-buttons">
           <Button theme="btn-max" type="submit">

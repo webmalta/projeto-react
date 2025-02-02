@@ -52,13 +52,7 @@ const Detalhes: React.FC = () => {
                     <span>Data de criação: {formatarData(dragon.createdAt)}</span><br />
                     <span>Tipo: {dragon.type}</span>
                     <p>
-                      Nulla ut cursus ipsum. Mauris justo metus, sollicitudin in convallis sed, 
-                      aliquet eu elit. Etiam tincidunt commodo turpis, ac luctus turpis tempus id. 
-                      Aenean ultrices mauris sed commodo posuere. Phasellus cursus, enim eu sollicitudin 
-                      ornare, nulla mi lobortis massa, sed bibendum nulla augue vel nibh. 
-                      Praesent ut mauris fermentum, pulvinar justo ac, lacinia odio. Curabitur 
-                      placerat egestas justo id ornare. Donec cursus turpis non augue pharetra faucibus. 
-                      Donec ultricies aliquam arcu, non eleifend augue condimentum sit amet.
+                      {dragon.histories}
                     </p>
                   </div>
 

@@ -11,8 +11,8 @@ jest.mock('services/api', () => ({
 
 describe('Home Component', () => {
   const mockDragons: Dragon[] = [
-    { id: 1, name: 'Fúria da Noite', createdAt: '2025-01-01', type: 'Night Fury' },
-    { id: 2, name: 'Banguela', createdAt: '2025-01-02', type: 'Night Fury' },
+    { id: 1, name: 'Fúria da Noite', createdAt: '2025-01-01', type: 'Night Fury', histories: ['historia 1'] },
+    { id: 2, name: 'Banguela', createdAt: '2025-01-02', type: 'Night Fury', histories: ['historia 1'] },
   ];
 
   beforeEach(() => {
