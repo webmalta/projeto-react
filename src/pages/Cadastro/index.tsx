@@ -6,10 +6,11 @@ import api from "services/api";
 import Form from "components/Form";
 
 const Cadastro: React.FC = () => {
-    const [formData, setFormData] = useState<Pick<Dragon, 'name' | 'type' | 'histories'>>({
+    const [formData, setFormData] = useState<Dragon>({
         name: "",
         type: "",
-        histories: []
+        histories: [],
+        createdAt: new Date().toISOString()
     });
     const navigate = useNavigate();
 
@@ -37,15 +38,18 @@ const Cadastro: React.FC = () => {
     const handleSubmit = async (event: React.FormEvent) => {
         event.preventDefault();
         try {
+            const formatedHistories = formData.histories.join("").split("\n");
             const dragonToSave: Dragon = {
                 ...formData,
+                histories: formatedHistories,
                 createdAt: new Date().toISOString(),
             };
             await salvarDragao(dragonToSave);
             setFormData({
                 name: '',
                 type: '',
-                histories: []
+                histories: [],
+                createdAt: new Date().toISOString()
             });
         } catch {
             console.error("Erro ao salvar o dragão.");

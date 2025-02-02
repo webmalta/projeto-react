@@ -7,11 +7,10 @@ import { Dragon } from "types/dragon";
 const Alterar: React.FC = () => {
     const { id } = useParams();
     const navigate = useNavigate();
-    const [formData, setFormData] = useState<Dragon>({
+    const [formData, setFormData] = useState<Pick<Dragon, 'name' | 'type' | 'histories'>>({
         name: "",
         type: "",
         histories: [],
-        createdAt: new Date().toISOString()
     });
     const [loading, setLoading] = useState<boolean>(true);
 
@@ -33,9 +32,11 @@ const Alterar: React.FC = () => {
     }, [id]);
 
     const salvarAlteracoes = async () => {
-        const { createdAt, ...dados } = formData;
+        const { ...dados } = formData;
+
         try {
-            await api.put<Dragon>(`/${id}`, dados);
+            const formatHistories = formData.histories.join("").split("\n");
+            await api.put<Dragon>(`/${id}`, { ...dados, histories: formatHistories });
             alert("Alterações salvas com sucesso!");
             navigate('/Home');
         } catch (error) {
@@ -47,11 +48,11 @@ const Alterar: React.FC = () => {
         if (field === "histories") {
             setFormData(prevState => ({
                 ...prevState,
-                histories: [value]
+                histories: value ? [value] : []
             }));
-            return;
+        } else {
+            setFormData({ ...formData, [field]: value });
         }
-        setFormData({ ...formData, [field]: value });
     };
 
     const handleSubmit = (event: React.FormEvent) => {
